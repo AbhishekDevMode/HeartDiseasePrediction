@@ -3,6 +3,8 @@ from __future__ import annotations
 import math
 from typing import Literal
 
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -13,12 +15,14 @@ app = FastAPI(
     description="Educational heart disease risk assessment API. It is not a medical diagnosis.",
 )
 
-origins = [item.strip() for item in __import__("os").getenv("CORS_ORIGINS", "http://localhost:5173").split(",")]
+raw_origins = os.getenv("CORS_ORIGINS", "*")
+origins = [item.strip() for item in raw_origins.split(",") if item.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_origins=origins if origins else ["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
