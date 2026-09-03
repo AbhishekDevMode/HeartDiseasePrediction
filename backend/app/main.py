@@ -7,7 +7,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-
 app = FastAPI(
     title="Heart Disease Prediction API",
     version="1.0.0",
@@ -22,7 +21,6 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
-
 
 class AssessmentInput(BaseModel):
     age: int = Field(ge=18, le=120)
