@@ -1,0 +1,9 @@
+/config.local
+/tmp
+/cache
+/raw_data.csv
+/test_data.csv
+/train_data.csv
+/Preprocessor.pkl
+/Model.pkl
+/heart.csv
