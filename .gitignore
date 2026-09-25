@@ -37,6 +37,7 @@ pnpm-debug.log*
 # Environment & Secrets
 .env
 *.env
+.streamlit/secrets.toml
 
 # Operating System & IDE Files
 .DS_Store
