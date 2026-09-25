@@ -43,7 +43,7 @@ export default function App() {
     </section>
     <section className="workspace">
       <form onSubmit={handleSubmit}>
-        <div className="form-heading"><div><p className="eyebrow">PATIENT MEASUREMENTS</p><h2>Assessment details</h2></div><button type="button" className="secondary" onClick={useSample}>Use sample data</button></div>
+        <div className="form-heading"><div><p className="eyebrow">PATIENT MEASUREMENTS</p><h2>Assessments details</h2></div><button type="button" className="secondary" onClick={useSample}>Use sample data</button></div>
         <div className="grid">{fields.map(([name, label, type, config]) => <label key={name}>{label}
           {type === 'select' ? <select required value={values[name] ?? ''} onChange={e => update(name, e.target.value)}><option value="" disabled>Select an option</option>{config.map(([value, text]) => <option key={value} value={value}>{text}</option>)}</select>
           : <input required type="number" value={values[name] ?? ''} onChange={e => update(name, e.target.value)} {...config} />}
